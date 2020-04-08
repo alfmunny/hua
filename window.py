@@ -19,13 +19,24 @@ class Window:
         self._init_colors()
 
     def _init_colors(self):
-        B
         curses.start_color()
         curses.use_default_colors()
         curses.init_pair(1, self.COLOR_BLACK, self.COLOR_WHITE)
+        curses.init_pair(2, self.COLOR_RED, self.COLOR_WHITE)
+        curses.init_pair(3, self.COLOR_BLUE, self.COLOR_WHITE)
+        curses.init_pair(4, self.COLOR_CYAN, self.COLOR_WHITE)
+        curses.init_pair(5, self.COLOR_MAGENTA, self.COLOR_WHITE)
+        curses.init_pair(6, self.COLOR_YELLOW, self.COLOR_WHITE)
 
-    def drawString(self, x, y, m, *args):
-        self._w.addstr(x, y, m, *args)
+    def color_pair(self, number):
+        return curses.color_pair(number)
+
+    def drawString(self, y, x, s, *args):
+        self._w.addstr(y, x, s, *args)
+
+    def drawLine(self, y, x, l, r, *args):
+        line = "*" * l
+        self.drawString(y, x, line, *args)
 
     def clear(self):
         self._w.clear()

@@ -19,7 +19,7 @@ class Model:
 
     def render(self):
         while True:
-            print("%s"%self.figure, end='\r', flush=True)
+            print("%s"%self.figure, end='\r', flush=True3
             #print("this", end='\r', flush=True)
             time.sleep(2)
             print("%s"%self.figure2, end='\r', flush=True)
@@ -49,7 +49,8 @@ class Human(Model):
 def main(stdscr):
     win = Window(stdscr)
     m = Model()
-    win.drawString(0, 0, "1", curses.A_REVERSE)
+    #win.drawString(0, 0, "*")
+    win.drawLine(0, 0, 12, 0)
     win.update()
     win.wait()
 
